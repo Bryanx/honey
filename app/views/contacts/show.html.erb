@@ -1,0 +1,24 @@
+<nav class="top-navbar">
+  <%= link_to "/" do %>
+      <button type="button" class="nav-btn fifth-width">
+        <span class="glyphicon glyphicon-chevron-left btn-block gray"></span>
+      </button>
+  <% end %>
+
+  <%= link_to edit_contacts_path(@contact) do %>
+      <button type="button" class="nav-btn fifth-width nav-right">
+        <span class="glyphicon glyphicon-edit btn-block gray"></span>
+      </button>
+  <% end %>
+</nav>
+
+<section class="contact">
+    <h1 class="contact_header"><%= @contact.first_name %></h1>
+    <p><span class="glyphicon glyphicon-user light-gray icon_contact">
+        </span> <%= @contact.first_name %> <%= @contact.last_name %></p>
+    <p><span class="glyphicon glyphicon-time light-gray icon_contact">
+        </span> <%= @contact.created_at %></p>
+    <p><span class="glyphicon glyphicon-trash light-gray icon_contact">
+        </span> <%= link_to "Delete", delete_contacts_path(@contact), :confirm => "Are you sure?", :method => :delete %>
+    </p>
+</section>

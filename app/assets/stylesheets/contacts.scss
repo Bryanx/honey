@@ -1,0 +1,93 @@
+// Place all the styles related to the Contacts controller here.
+// They will automatically be included in application.scss.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.contacts_container {
+  padding-top: 39px;
+  width:100%;
+  padding-bottom: 50px;
+}
+
+.contact_item {
+  border-top: 1px solid #e2e2e2;
+  padding: 15px 0 15px 0;
+  padding-left: 5%;
+}
+.contact_item:active, .contact_item:hover {
+  background-color: #e2e2e2;
+}
+
+.first_name, .last_name {
+  font-size: 20px;
+}
+
+.first_name {
+  color: #515151;
+}
+
+.last_name {
+  font-weight: bold;
+  color: #6c6c6c
+}
+
+.fifth-width {
+  width:20%;
+}
+
+// CONTACT PAGE
+
+.contact {
+  margin: 15px;
+}
+
+.contact_header {
+  text-align: center;
+}
+
+.nav-right {
+  float: right !important;
+}
+
+.icon_contact {
+  padding: 5px;
+}
+
+// SEARCH
+#search_field{
+  position: fixed;
+  top: 0px;
+  border-bottom: 1px solid #999999;
+  background-color: #e2e2e2;
+}
+
+#search_field input{
+  border: 0;
+  box-shadow: none;
+  border-radius: 0px;
+  background-color: #e2e2e2;
+  text-align: center;
+}
+
+#search_field button{
+  margin: 2px 0 0 0;
+  background: none;
+  box-shadow: none;
+  border: 0;
+  color: #666666;
+  padding: 0 15px 0 15px;
+  border-left: solid 1px #ccc;
+}
+
+#search_field button:hover{
+  border: 0;
+  box-shadow: none;
+  border-left: solid 1px #ccc;
+}
+
+#search_field .glyphicon-search{
+  font-size: 18px;
+}
+
+#search_field input[type=text] {
+  height: 40px;
+}

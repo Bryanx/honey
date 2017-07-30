@@ -1,0 +1,18 @@
+<div class="login">
+  <div class="container">
+    <div class="form">
+      <legend>sign up</legend>
+      <%= form_for(@user) do |f| %>
+
+          <%= f.text_field :first_name, :placeholder => 'First name', class: "first_field" %>
+          <%= f.text_field :last_name, :placeholder => 'Last name' %>
+          <%= f.email_field :email, :placeholder => 'Email' %>
+          <%= f.password_field :password, :placeholder => 'Password', class: "last_field" %>
+          <%= f.submit "Create account", class: "btn-submit" %>
+          <%= link_to "Already have an account? Login", 'login', class: "extra_form" %>
+
+    <% end %>
+
+    </div>
+  </div>
+</div>

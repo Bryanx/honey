@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Honey</title>
+  <%= csrf_meta_tags %>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag "simple-sidebar" %>
+
+</head>
+
+<body class="white-bg">
+
+<%= yield %>
+
+<nav class="btn-group bottom-navbar purple-bg">
+  <button type="button" class="nav-btn fifth-width">
+    <span class="glyphicon glyphicon-star btn-block"></span><span class="nav-text">Favorites</span>
+  </button>
+
+  <button type="button" class="nav-btn fifth-width">
+    <span class="glyphicon glyphicon-user btn-block"></span><span class="nav-text">Profile</span>
+  </button>
+
+  <%= link_to "/" do %>
+      <button type="button" class="nav-btn fifth-width">
+        <span class="glyphicon glyphicon-book btn-block"></span><span class="nav-text">Contacts</span>
+      </button>
+  <% end %>
+
+  <%= link_to "/contacts/new" do %>
+      <button type="button" class="nav-btn fifth-width">
+        <span class="glyphicon glyphicon-plus-sign btn-block"></span><span class="nav-text">New</span>
+      </button>
+  <% end %>
+
+  <%= link_to logout_path, method: "delete" do %>
+      <button type="button" class="nav-btn fifth-width">
+        <span class="glyphicon glyphicon-log-out btn-block"></span><span class="nav-text">Log out</span>
+      </button>
+  <% end %>
+</nav>
+
+</body>
+</html>

@@ -1,0 +1,180 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased; /* All fonts get antialiased */
+    -moz-osx-font-smoothing: grayscale; /* Also for Firefox (impossible to do this without using a vendor-extension) */
+    text-decoration: none;
+}
+
+body {
+    font: 16px 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+    background-color: #4D2973;
+    color: #515151;
+}
+
+.container {
+  padding: 0px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  color: #515151;
+}
+a:active {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+
+/* FORM PAGES */
+
+.form {
+    text-align:center;
+    margin: 0 auto 0px;
+    width: 290px;
+}
+
+legend {
+    color: #DBCB04;
+    font-size: 22px;
+    text-transform: uppercase;
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border: none;
+}
+
+.first_field {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.last_field {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+
+
+input[type=text],
+input[type=email],
+input[type=password] {
+    font-size: 16px;
+    color: #999999;
+    width: 100%;
+    padding: 0 15px 0 15px;
+    border: 1px solid #E6E6E6;
+    height: 60px;
+    margin: -1px auto;
+    text-indent: 10px;
+}
+
+.btn-submit {
+    color: #fff;
+    font-size: 22px;
+    text-transform: uppercase;
+    width: 100%;
+    background-color: #5938A3;
+    border: 1px solid #5938A3;
+    border-radius: 30px;
+    height: 60px;
+    margin: 40px 0 40px 0;
+    text-indent: 10px;
+}
+
+.btn-submit:hover {
+    color: #fff;
+    background-color: #BFA105;
+    border: 1px solid #BFA105;
+    cursor: pointer;
+}
+
+.extra_form {
+    color: #fff;
+    margin: 16px;
+    height: 20px;
+    width:100%;
+    text-align: center;
+}
+
+.extra_form:hover {
+    text-decoration: underline;
+}
+
+input, button { outline: none; }
+
+.white, .white a {
+  color: #fff;
+}
+
+.light-gray, .light-gray a {
+  color:#999999 !important;
+}
+
+.gray, .gray a {
+  color: #515151;
+}
+
+.white-bg {
+  background:#ffffff !important;
+}
+
+.gray-bg {
+  background:#666666 !important;
+}
+
+.purple-bg {
+  background-color: #4D2973;
+}
+
+.top-navbar {
+  width:100%;
+  position: fixed;
+  top: 0px;
+}
+
+.bottom-navbar {
+  width:100%;
+  position: fixed;
+  bottom: 0px;
+}
+
+.nav-btn {
+  color: white;
+  padding: 10px 0 4px 0;
+  font-size: 18px;
+  line-height: 1.428571429;
+  float: left;
+}
+
+.nav-text {
+  color: white;
+  font-size: 9px;
+  text-align: center;
+  overflow:hidden;
+
+}

@@ -8,7 +8,6 @@
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_link_tag "simple-sidebar" %>
 
 </head>
 
@@ -16,30 +15,30 @@
 
 <%= yield %>
 
-<nav class="btn-group bottom-navbar purple-bg">
-  <button type="button" class="nav-btn fifth-width">
-    <span class="glyphicon glyphicon-star btn-block"></span><span class="nav-text">Favorites</span>
+<nav class="bottom-navbar">
+  <button type="button" class="nav-btn fifth-width purple-bg">
+    <i class="glyphicon glyphicon-star btn-block"></i><span class="nav-text">Favorites</span>
   </button>
-
-  <button type="button" class="nav-btn fifth-width">
-    <span class="glyphicon glyphicon-user btn-block"></span><span class="nav-text">Profile</span>
-  </button>
-
+  <%= link_to "/companies" do %>
+    <button type="button" class="nav-btn fifth-width purple-bg">
+      <i class="glyphicon glyphicon-briefcase btn-block"></i><span class="nav-text">Companies</span>
+    </button>
+  <% end %>
   <%= link_to "/" do %>
-      <button type="button" class="nav-btn fifth-width">
-        <span class="glyphicon glyphicon-book btn-block"></span><span class="nav-text">Contacts</span>
+      <button type="button" class="nav-btn fifth-width purple-bg">
+        <i class="glyphicon glyphicon-book btn-block"></i><span class="nav-text">Contacts</span>
       </button>
   <% end %>
 
   <%= link_to "/contacts/new" do %>
-      <button type="button" class="nav-btn fifth-width">
-        <span class="glyphicon glyphicon-plus-sign btn-block"></span><span class="nav-text">New</span>
+      <button type="button" class="nav-btn fifth-width purple-bg">
+        <i class="glyphicon glyphicon-plus-sign btn-block"></i><span class="nav-text">New</span>
       </button>
   <% end %>
 
   <%= link_to logout_path, method: "delete" do %>
-      <button type="button" class="nav-btn fifth-width">
-        <span class="glyphicon glyphicon-log-out btn-block"></span><span class="nav-text">Log out</span>
+      <button type="button" class="nav-btn fifth-width purple-bg">
+        <i class="glyphicon glyphicon-log-out btn-block"></i><span class="nav-text">Log out</span>
       </button>
   <% end %>
 </nav>

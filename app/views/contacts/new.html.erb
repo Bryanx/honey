@@ -5,8 +5,12 @@
 
     <div class="field">
       <%= f.text_field :first_name, :placeholder => "First name" %><br>
-      <%= f.text_field :last_name, :placeholder => "Last name" %>
     </div>
+
+      <%= f.fields_for :company do |c| %>
+        <%= c.text_field :name, :placeholder => "Company" %>
+      <% end %>
+
     <div class="actions">
       <%= f.submit "Create" %>
     </div>

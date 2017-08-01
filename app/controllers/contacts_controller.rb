@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
 
-  before_action :require_user, only: [:index, :show]
+  before_action :require_user, only: [:index, :show, :new]
 
   def index
     @contacts = current_user.contacts
@@ -32,11 +32,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     @contact.user_id = session[:user_id]
-    if @contact.save
-      redirect_to '/'
-    else
-      render 'new'
-    end
+    @contact.save
   end
 
   def destroy
@@ -47,7 +43,7 @@ class ContactsController < ApplicationController
 
   private
   def contact_params
-    params.require(:contact).permit(:first_name, :last_name)
+    params.require(:contact).permit(:first_name)
   end
 
 end

@@ -10,14 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170726144501) do
+ActiveRecord::Schema.define(version: 20170731130657) do
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.string "phone_number"
+    t.string "address"
+    t.string "country"
+    t.string "founded"
+    t.string "spokesman"
+    t.string "website"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_companies_on_user_id"
+  end
 
   create_table "contacts", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
+    t.string "org"
+    t.date "birthday"
+    t.string "website"
+    t.string "phone_number1"
+    t.string "phone_number2"
+    t.string "address"
+    t.string "notes"
     t.integer "user_id"
+    t.integer "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_contacts_on_company_id"
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 

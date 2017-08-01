@@ -16,6 +16,7 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 
 
 * {
@@ -23,12 +24,13 @@
     padding: 0;
     -webkit-font-smoothing: antialiased; /* All fonts get antialiased */
     -moz-osx-font-smoothing: grayscale; /* Also for Firefox (impossible to do this without using a vendor-extension) */
-    text-decoration: none;
+  -webkit-appearance: none;
+  text-decoration: none;
 }
 
 body {
     font: 16px 'Open Sans', 'Helvetica', 'Arial', sans-serif;
-    background-color: #4D2973;
+    background-color: #730047;
     color: #515151;
 }
 
@@ -98,8 +100,8 @@ input[type=password] {
     font-size: 22px;
     text-transform: uppercase;
     width: 100%;
-    background-color: #5938A3;
-    border: 1px solid #5938A3;
+    background-color: #870053;
+    border: 1px solid #870053;
     border-radius: 30px;
     height: 60px;
     margin: 40px 0 40px 0;
@@ -139,6 +141,10 @@ input, button { outline: none; }
   color: #515151;
 }
 
+.transparant {
+  background: none !important;
+}
+
 .white-bg {
   background:#ffffff !important;
 }
@@ -148,7 +154,7 @@ input, button { outline: none; }
 }
 
 .purple-bg {
-  background-color: #4D2973;
+  background-color: #730047;
 }
 
 .top-navbar {
@@ -169,6 +175,8 @@ input, button { outline: none; }
   font-size: 18px;
   line-height: 1.428571429;
   float: left;
+  border: none;
+  -webkit-appearance: none;
 }
 
 .nav-text {

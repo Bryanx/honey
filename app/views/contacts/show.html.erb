@@ -1,24 +1,34 @@
 <nav class="top-navbar">
   <%= link_to "/" do %>
-      <button type="button" class="nav-btn fifth-width">
-        <span class="glyphicon glyphicon-chevron-left btn-block gray"></span>
+      <button type="button" class="nav-btn fifth-width transparant">
+        <i class="glyphicon glyphicon-chevron-left btn-block gray"></i>
       </button>
   <% end %>
 
   <%= link_to edit_contacts_path(@contact) do %>
-      <button type="button" class="nav-btn fifth-width nav-right">
-        <span class="glyphicon glyphicon-edit btn-block gray"></span>
+      <button type="button" class="nav-btn fifth-width nav-right transparant">
+        <i class="glyphicon glyphicon-edit btn-block gray"></i>
       </button>
   <% end %>
 </nav>
 
 <section class="contact">
     <h1 class="contact_header"><%= @contact.first_name %></h1>
-    <p><span class="glyphicon glyphicon-user light-gray icon_contact">
-        </span> <%= @contact.first_name %> <%= @contact.last_name %></p>
-    <p><span class="glyphicon glyphicon-time light-gray icon_contact">
-        </span> <%= @contact.created_at %></p>
-    <p><span class="glyphicon glyphicon-trash light-gray icon_contact">
-        </span> <%= link_to "Delete", delete_contacts_path(@contact), :confirm => "Are you sure?", :method => :delete %>
+    <p><i class="glyphicon glyphicon-user light-gray icon_contact">
+        </i> <%= @contact.first_name %> <%= @contact.last_name %></p>
+    <p><i class="glyphicon glyphicon-briefcase light-gray icon_contact">
+          </i> <%= @contact.company.name %></p>
+    <p><i class="fa fa-birthday-cake light-gray icon_contact" aria-hidden="true"></i>
+        <%= @contact.birthday %></p>
+    <p><i class="glyphicon glyphicon-phone light-gray icon_contact">
+            </i> <%= @contact.phone_number1 %></p>
+  <p><i class="glyphicon glyphicon-home light-gray icon_contact">
+            </i> <%= @contact.address %></p>
+  <p><i class="fa fa-comment light-gray icon_contact">
+            </i> <%= @contact.notes %></p>
+    <p><i class="glyphicon glyphicon-time light-gray icon_contact">
+        </i> <%= @contact.created_at %></p>
+    <p><i class="glyphicon glyphicon-trash light-gray icon_contact">
+        </i> <%= link_to "Delete", delete_contacts_path(@contact), :confirm => "Are you sure?", :method => :delete %>
     </p>
 </section>

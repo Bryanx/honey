@@ -1,0 +1,18 @@
+
+
+
+<%= form_for(@company) do |f| %>
+
+    <div class="field">
+      <%= f.text_field :name, :placeholder => "Company name" %><br>
+    </div>
+
+    <%= f.fields_for :contact do |c| %>
+        <%= c.text_field :first_name, :placeholder => "First name" %>
+    <% end %>
+
+
+    <div class="actions">
+      <%= f.submit "Create" %>
+    </div>
+<% end %>

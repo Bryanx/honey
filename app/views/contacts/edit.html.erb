@@ -1,12 +1,12 @@
 <nav class="top-navbar">
   <%= link_to contact_path(@contact) do %>
-      <button type="button" class="nav-btn fifth-width">
-        <span class="glyphicon glyphicon-chevron-left btn-block gray"></span>
+      <button type="button" class="nav-btn fifth-width transparant">
+        <i class="glyphicon glyphicon-chevron-left btn-block gray"></i>
       </button>
   <% end %>
   <%= link_to contact_path(@contact) do %>
-      <button id="myBtn" type="button" class="nav-btn fifth-width nav-right">
-        <span class="glyphicon glyphicon-ok btn-block gray"></span>
+      <button id="myBtn" type="button" class="nav-btn fifth-width nav-right transparant">
+        <i class="glyphicon glyphicon-ok btn-block gray"></i>
       </button>
   <% end %>
 </nav>
@@ -16,6 +16,12 @@
     <%= form_for @contact, html: { id: "myForm" } do |c| %>
         <%= c.text_field :first_name %>
         <%= c.text_field :last_name %>
+      <%= c.text_field :company %>
+      <%= c.date_select :birthday %>
+      <%= c.text_field :phone_number1 %>
+      <%= c.text_field :address %>
+      <%= c.text_field :website %>
+      <%= c.text_area :notes %>
     <% end %>
 
 </section>

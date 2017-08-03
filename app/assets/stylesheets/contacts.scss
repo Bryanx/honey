@@ -36,8 +36,29 @@
 
 // CONTACT PAGE
 
-.contact {
-  margin: 15px;
+.contact_detail {
+  border-top: 1px solid #e2e2e2;
+  padding: 7px 0 7px 15px;
+  margin: 0 !important;
+}
+.contact_detail:hover, .contact_detail:active {
+  background-color: #e2e2e2;
+}
+
+.contact_image {
+  width: 20%;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  display:block;
+}
+
+.item_margin {
+  margin: 15px 0 60px 0;
+}
+
+.form_margin {
+  margin: 45px 0 75px 0;
 }
 
 .contact_header {

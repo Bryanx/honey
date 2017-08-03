@@ -1,7 +1,9 @@
-<% @companies.each do |c| %>
-    <%= link_to company_path(c) do %>
-        <li class="first_name contact_item">
-          <%= c.name %>
-        </li>
-    <% end %>
-<% end %>
+<ul>
+  <% @companies.each do |c| %>
+      <%= link_to company_path(c) do %>
+          <li class="first_name contact_item">
+            <%= c.name %>
+          </li>
+      <% end %>
+  <% end %>
+</ul>

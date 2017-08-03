@@ -1,17 +1,38 @@
+<nav class="top-navbar">
 
+  <%= render :partial => '/partials/back_button' %>
 
+  <%= link_to '/' do %>
+      <button id="myBtn" type="button" class="nav-btn fifth-width nav-right transparant">
+        <i class="glyphicon glyphicon-ok btn-block gray"></i>
+      </button>
+  <% end %>
+</nav>
 
-<%= form_for(@contact) do |f| %>
-
-    <div class="field">
-      <%= f.text_field :first_name, :placeholder => "First name" %><br>
-    </div>
-
-      <%= f.fields_for :company do |c| %>
-        <%= c.text_field :name, :placeholder => "Company" %>
+<section class="form_margin">
+  <%= render 'partials/errors', object: @contact %>
+  <%= form_for @contact do |f| %>
+      <%= f.label :contact_image %>
+      <%= f.file_field :contact_image %>
+      <%= f.text_field :first_name, :placeholder => "First name", required: true %>
+      <%= f.text_field :last_name, :placeholder => "Last name", required: true %>
+      <%= f.fields_for :companies do |cc| %>
+          <%= cc.text_field :name, :placeholder => "Company" %>
       <% end %>
+      <%= f.text_field :phone_number1, :placeholder => "Phone number" %>
+      <%= f.date_select :birthday %>
+      <%= f.text_field :address, :placeholder => "Address" %>
+      <%= f.text_field :website, :placeholder => "Website" %>
+      <%= f.text_area :notes, :placeholder => "Notes" %>
+      <div class="actions">
+        <%= f.submit "Create" %>
+      </div>
+  <% end %>
 
-    <div class="actions">
-      <%= f.submit "Create" %>
-    </div>
-<% end %>
+</section>
+
+<script>$(document).ready(function () {
+    $('#myBtn').on('click', function () {
+        $('#myForm').submit();
+    });
+});</script>

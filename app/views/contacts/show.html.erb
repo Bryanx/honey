@@ -1,9 +1,6 @@
 <nav class="top-navbar">
-  <%= link_to "/" do %>
-      <button type="button" class="nav-btn fifth-width transparant">
-        <i class="glyphicon glyphicon-chevron-left btn-block gray"></i>
-      </button>
-  <% end %>
+
+  <%= render :partial => '/partials/back_button' %>
 
   <%= link_to edit_contacts_path(@contact) do %>
       <button type="button" class="nav-btn fifth-width nav-right transparant">
@@ -12,23 +9,43 @@
   <% end %>
 </nav>
 
-<section class="contact">
-    <h1 class="contact_header"><%= @contact.first_name %></h1>
-    <p><i class="glyphicon glyphicon-user light-gray icon_contact">
-        </i> <%= @contact.first_name %> <%= @contact.last_name %></p>
-    <p><i class="glyphicon glyphicon-briefcase light-gray icon_contact">
-          </i> <%= @contact.company.name %></p>
-    <p><i class="fa fa-birthday-cake light-gray icon_contact" aria-hidden="true"></i>
+<section class="item_margin">
+  <%= image_tag(@contact.contact_image.url, :class => "contact_image") if @contact.contact_image.exists? %>
+  <h2 class="contact_header"><%= @contact.first_name %></h2>
+  <p  class="contact_detail"><i class="glyphicon glyphicon-user light-gray icon_contact">
+  </i> <%= @contact.first_name %> <%= @contact.last_name %></p>
+
+  <% if @contact.companies.any? %>
+      <%= link_to @company_id do %>
+          <% @contact.companies.each do |c| %>
+              <p  class="contact_detail"><i class="glyphicon glyphicon-briefcase light-gray icon_contact">
+              </i> <%= c.name %></p>
+          <% end %>
+      <% end %>
+  <% end %>
+  <% unless @contact.phone_number1.nil? || @contact.phone_number1.length == 0 %>
+      <p class="contact_detail"><i class="glyphicon glyphicon-phone light-gray icon_contact">
+      </i> <%= @contact.phone_number1 %></p>
+  <% end %>
+  <% unless @contact.birthday.nil? %>
+      <p class="contact_detail"><i class="fa fa-birthday-cake light-gray icon_contact" aria-hidden="true"></i>
         <%= @contact.birthday %></p>
-    <p><i class="glyphicon glyphicon-phone light-gray icon_contact">
-            </i> <%= @contact.phone_number1 %></p>
-  <p><i class="glyphicon glyphicon-home light-gray icon_contact">
-            </i> <%= @contact.address %></p>
-  <p><i class="fa fa-comment light-gray icon_contact">
-            </i> <%= @contact.notes %></p>
-    <p><i class="glyphicon glyphicon-time light-gray icon_contact">
-        </i> <%= @contact.created_at %></p>
-    <p><i class="glyphicon glyphicon-trash light-gray icon_contact">
-        </i> <%= link_to "Delete", delete_contacts_path(@contact), :confirm => "Are you sure?", :method => :delete %>
-    </p>
+  <% end %>
+  <% unless @contact.address.nil? || @contact.address.length == 0 %>
+      <p class="contact_detail"><i class="glyphicon glyphicon-home light-gray icon_contact">
+      </i> <%= @contact.address %></p>
+  <% end %>
+  <% unless @contact.website.nil? || @contact.website.length == 0 %>
+      <p class="contact_detail"><i class="fa fa-chrome light-gray icon_contact">
+      </i> <%= @contact.website %></p>
+  <% end %>
+  <% unless @contact.notes.nil? || @contact.notes.length == 0 %>
+      <p class="contact_detail"><i class="fa fa-comment light-gray icon_contact">
+      </i> <%= @contact.notes %></p>
+  <% end %>
+  <p class="contact_detail"><i class="glyphicon glyphicon-time light-gray icon_contact">
+  </i> <%= @contact.created_at %></p>
+  <p class="contact_detail"><i class="glyphicon glyphicon-trash light-gray icon_contact">
+  </i> <%= link_to "Delete", delete_contacts_path(@contact), :confirm => "Are you sure?", :method => :delete %>
+  </p>
 </section>

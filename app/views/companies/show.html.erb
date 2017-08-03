@@ -1,2 +1,59 @@
-<h1>Companies#show</h1>
-<p>Find me in app/views/companies/show.html.erb</p>
+<nav class="top-navbar">
+
+  <%= render :partial => '/partials/back_button' %>
+
+  <%= link_to edit_companies_path(@company) do %>
+      <button type="button" class="nav-btn fifth-width nav-right transparant">
+        <i class="glyphicon glyphicon-edit btn-block gray"></i>
+      </button>
+  <% end %>
+</nav>
+
+<% if @company.company_image.exists? %>
+    <div class="crop_image">
+      <%= image_tag(@company.company_image.url, :class => "company_image") %>
+<% end %>
+</div>
+<section class="item_margin company_content">
+  <h2 class="contact_header"><%= @company.name %></h2>
+  <h5 class="contact_header"><%= @company.company_type %></h5>
+
+  <% unless @company.phone_number.nil? || @company.phone_number.length == 0 %>
+      <p class="contact_detail"><i class="glyphicon glyphicon-phone light-gray icon_contact" aria-hidden="true"></i>
+        <%= @company.phone_number %></p>
+  <% end %>
+
+  <% unless @company.address.nil? || @company.address.length == 0 %>
+      <p class="contact_detail"><i class="glyphicon glyphicon-home light-gray icon_contact" aria-hidden="true"></i>
+        <%= @company.address %></p>
+  <% end %>
+
+  <% unless @company.country.nil? || @company.country.length == 0 %>
+      <p class="contact_detail"><i class="glyphicon glyphicon-globe light-gray icon_contact" aria-hidden="true"></i>
+        <%= @company.country %></p>
+  <% end %>
+
+  <% unless @company.founded.nil? || @company.founded.length == 0 %>
+      <p class="contact_detail"><i class="glyphicon glyphicon-flag light-gray icon_contact" aria-hidden="true"></i>
+        <%= @company.founded %></p>
+  <% end %>
+
+  <% unless @company.spokesman.nil? || @company.spokesman.length == 0 %>
+      <p class="contact_detail"><i class="glyphicon glyphicon-user light-gray icon_contact" aria-hidden="true"></i>
+        <%= @company.spokesman %></p>
+  <% end %>
+
+  <% unless @company.website.nil? || @company.website.length == 0 %>
+      <p class="contact_detail"><i class="fa fa-chrome light-gray icon_contact" aria-hidden="true"></i>
+        <%= @company.website %></p>
+  <% end %>
+
+  <h4 class="contact_header staff_header">Staff</h4>
+
+
+  <% @contacts.each do |c| %>
+      <%= link_to "/contacts/#{c.id}" do %>
+          <p class="contact_detail"><i class="glyphicon glyphicon-user light-gray icon_contact"></i><%= c.first_name %> <%= c.last_name %></p>
+      <% end %>
+  <% end %>
+</section>

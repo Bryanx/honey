@@ -8,7 +8,7 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
-    @user = @company.user
+    @contacts = @company.contacts
   end
 
   def edit
@@ -27,12 +27,11 @@ class CompaniesController < ApplicationController
 
   def new
     @company = Company.new
-    @company.build_contacts
+    @company.user_id = session[:user_id]
   end
 
   def create
     @company = Company.new(company_params)
-    @company.user_id = session[:user_id]
     if @company.save
       redirect_to '/'
     else
@@ -47,7 +46,7 @@ class CompaniesController < ApplicationController
   end
 
   def company_params
-    params.require(:company).permit(:name, contacts_attributes: [:first_name])
+    params.require(:company).permit(:company_image, :name, :company_type, :phone_number, :address, :country, :founded, :spokesman, :website)
   end
 
 end

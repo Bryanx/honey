@@ -1,2 +1,18 @@
-<h1>Companies#edit</h1>
-<p>Find me in app/views/companies/edit.html.erb</p>
+<section class="form_margin">
+  <%= form_for(@company) do |f| %>
+      <%= f.label :company_image %>
+      <%= f.file_field :company_image %>
+      <%= f.text_field :name, :placeholder => "Company name" %><br>
+      <%= f.text_field :company_type, :placeholder => "Company type" %><br>
+      <%= f.text_field :phone_number, :placeholder => "Phone number" %><br>
+      <%= f.text_field :address, :placeholder => "Address" %><br>
+      <%= f.text_field :country, :placeholder => "Country" %><br>
+      <%= f.text_field :founded, :placeholder => "Founded in" %><br>
+      <%= f.text_field :spokesman, :placeholder => "Spokesman" %><br>
+      <%= f.text_field :website, :placeholder => "Website" %><br>
+
+      <div class="actions">
+        <%= f.submit "Create" %>
+      </div>
+  <% end %>
+</section>

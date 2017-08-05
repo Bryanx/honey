@@ -153,6 +153,10 @@ input, button { outline: none; }
   background:#ffffff !important;
 }
 
+.light-gray-bg {
+  background-color: #f4f4f4 !important;
+}
+
 .gray-bg {
   background:#666666 !important;
 }
@@ -161,10 +165,27 @@ input, button { outline: none; }
   background-color: #730047;
 }
 
+.no-border {
+  border: none !important;
+}
+
+/* NAVS */
+
+.nav_header {
+  display: inline-block;
+  margin-top: 12px;
+  color: #999999;
+}
+
 .top-navbar {
-  width:100%;
+  width: 100%;
   position: fixed;
   top: 0px;
+  text-align: center;
+  background: white;
+  height: 41px;
+  border-bottom: 1px solid #e2e2e2;
+  z-index: 100;
 }
 
 .bottom-navbar {

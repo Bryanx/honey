@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'favorites/index'
-
   root 'contacts#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'users/new'
@@ -28,6 +26,7 @@ Rails.application.routes.draw do
   get 'companies/:id/edit' => 'companies#edit', as: :edit_companies
   patch 'companies/:id' => 'companies#update'
   delete 'companies/:id/delete' => 'companies#destroy', as: :delete_companies
-
+  get 'favorites', :to => 'contacts#favorites'
+  patch '/fav_toggle' => 'contacts#fav_toggle', as: :fav_toggle
 
 end

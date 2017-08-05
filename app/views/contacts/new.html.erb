@@ -1,6 +1,6 @@
 <nav class="top-navbar">
 
-  <%= render :partial => '/partials/back_button' %>
+  <%= render '/partials/back_button', { url: contacts_path } %>
 
   <%= link_to '/' do %>
       <button id="myBtn" type="button" class="nav-btn fifth-width nav-right transparant">

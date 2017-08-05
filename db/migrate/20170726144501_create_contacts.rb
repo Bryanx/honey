@@ -10,6 +10,7 @@ class CreateContacts < ActiveRecord::Migration[5.1]
       t.string :phone_number2
       t.string :address
       t.string :notes
+      t.boolean :favorite
       t.references :user
       t.timestamps
     end

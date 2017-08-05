@@ -14,33 +14,34 @@
 <body class="white-bg">
 
 <%= yield %>
-
-<nav class="bottom-navbar">
-  <button type="button" class="nav-btn fifth-width purple-bg">
-    <i class="glyphicon glyphicon-star btn-block"></i><span class="nav-text">Favorites</span>
-  </button>
-  <%= link_to "/companies" do %>
+<%= link_to "/favorites" do %>
+    <nav class="bottom-navbar">
+      <button type="button" class="nav-btn fifth-width purple-bg">
+        <i class="glyphicon glyphicon-star btn-block"></i><span class="nav-text">Favorites</span>
+      </button>
+<% end %>
+<%= link_to "/companies" do %>
     <button type="button" class="nav-btn fifth-width purple-bg">
       <i class="glyphicon glyphicon-briefcase btn-block"></i><span class="nav-text">Companies</span>
     </button>
-  <% end %>
-  <%= link_to "/" do %>
-      <button type="button" class="nav-btn fifth-width purple-bg">
-        <i class="glyphicon glyphicon-book btn-block"></i><span class="nav-text">Contacts</span>
-      </button>
-  <% end %>
+<% end %>
+<%= link_to "/" do %>
+    <button type="button" class="nav-btn fifth-width purple-bg">
+      <i class="glyphicon glyphicon-book btn-block"></i><span class="nav-text">Contacts</span>
+    </button>
+<% end %>
 
-  <%= link_to "/contacts/new" do %>
-      <button type="button" class="nav-btn fifth-width purple-bg">
-        <i class="glyphicon glyphicon-plus-sign btn-block"></i><span class="nav-text">New</span>
-      </button>
-  <% end %>
+<%= link_to "/contacts/new" do %>
+    <button type="button" class="nav-btn fifth-width purple-bg">
+      <i class="glyphicon glyphicon-plus-sign btn-block"></i><span class="nav-text">New</span>
+    </button>
+<% end %>
 
-  <%= link_to logout_path, method: "delete" do %>
-      <button type="button" class="nav-btn fifth-width purple-bg">
-        <i class="glyphicon glyphicon-log-out btn-block"></i><span class="nav-text">Log out</span>
-      </button>
-  <% end %>
+<%= link_to logout_path, method: "delete" do %>
+    <button type="button" class="nav-btn fifth-width purple-bg">
+      <i class="glyphicon glyphicon-log-out btn-block"></i><span class="nav-text">Log out</span>
+    </button>
+<% end %>
 </nav>
 
 </body>

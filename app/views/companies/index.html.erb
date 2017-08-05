@@ -1,4 +1,8 @@
-<ul>
+<nav class="top-navbar light-gray-bg">
+  <header class="nav_header">Companies</header>
+</nav>
+
+<ul class="companies">
   <% @companies.each do |c| %>
       <%= link_to company_path(c) do %>
           <li class="first_name contact_item">

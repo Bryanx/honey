@@ -1,22 +1,24 @@
 <nav class="top-navbar">
 
-  <%= render :partial => '/partials/back_button' %>
-
+  <%= render '/partials/back_button', {url: companies_path} %>
+  <header class="nav_header">Company details</header>
   <%= link_to edit_companies_path(@company) do %>
       <button type="button" class="nav-btn fifth-width nav-right transparant">
         <i class="glyphicon glyphicon-edit btn-block gray"></i>
       </button>
   <% end %>
 </nav>
-
+<div class="crop_image">
 <% if @company.company_image.exists? %>
-    <div class="crop_image">
       <%= image_tag(@company.company_image.url, :class => "company_image") %>
+<% else %>
+      <%= image_tag(image_path("placeholder-company.png"), :class => "company_image") %>
 <% end %>
 </div>
+
 <section class="item_margin company_content">
-  <h2 class="contact_header"><%= @company.name %></h2>
-  <h5 class="contact_header"><%= @company.company_type %></h5>
+  <h2 class="text-center"><%= @company.name %></h2>
+  <h5 class="text-center"><%= @company.company_type %></h5>
 
   <% unless @company.phone_number.nil? || @company.phone_number.length == 0 %>
       <p class="contact_detail"><i class="glyphicon glyphicon-phone light-gray icon_contact" aria-hidden="true"></i>
@@ -48,12 +50,13 @@
         <%= @company.website %></p>
   <% end %>
 
-  <h4 class="contact_header staff_header">Staff</h4>
+  <h4 class="text-center staff_header">Staff</h4>
 
 
   <% @contacts.each do |c| %>
       <%= link_to "/contacts/#{c.id}" do %>
-          <p class="contact_detail"><i class="glyphicon glyphicon-user light-gray icon_contact"></i><%= c.first_name %> <%= c.last_name %></p>
+          <p class="contact_detail">
+            <i class="glyphicon glyphicon-user light-gray icon_contact"></i><%= c.first_name %> <%= c.last_name %></p>
       <% end %>
   <% end %>
 </section>

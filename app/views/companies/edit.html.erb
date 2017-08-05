@@ -1,3 +1,14 @@
+<nav class="top-navbar">
+
+  <%= render '/partials/back_button', { url: :back } %>
+
+  <%= link_to company_path(@company) do %>
+      <button id="myBtn" type="button" class="nav-btn fifth-width nav-right transparant">
+        <i class="glyphicon glyphicon-ok btn-block gray"></i>
+      </button>
+  <% end %>
+</nav>
+
 <section class="form_margin">
   <%= form_for(@company) do |f| %>
       <%= f.label :company_image %>
@@ -16,3 +27,8 @@
       </div>
   <% end %>
 </section>
+
+
+<script>$(document).ready(function() {
+    $('#myBtn').on('click', function() { $('#myForm').submit(); });
+});</script>

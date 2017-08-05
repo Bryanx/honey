@@ -5,11 +5,11 @@ class ContactsController < ApplicationController
   def index
     search = params[:term].present? ? params[:term] : nil
     @contacts = if search
-                # Movie.where("title LIKE ? OR plot LIKE ?", "%#{search}%", "%#{search}%")
-                current_user.contacts.search(search)
-              else
-                current_user.contacts
-              end
+                  # Movie.where("title LIKE ? OR plot LIKE ?", "%#{search}%", "%#{search}%")
+                  current_user.contacts.search(search)
+                else
+                  current_user.contacts
+                end
   end
 
   def show
@@ -28,10 +28,13 @@ class ContactsController < ApplicationController
   def update
     @contact = Contact.find(params[:id])
     @contact.user_id = session[:user_id]
-    if @contact.update_attributes(contact_params)
-      redirect_to(:action => 'show', :id => @contact.id)
-    else
-      render 'edit'
+    respond_to do |format|
+      if @contact.update_attributes(contact_params)
+        format.js {}
+        redirect_to(:action => 'show', :id => @contact.id)
+      else
+        render 'edit'
+      end
     end
   end
 
@@ -75,10 +78,22 @@ class ContactsController < ApplicationController
     redirect_to '/', :notice => "Contact has been deleted"
   end
 
+  def favorites
+    @contacts = current_user.contacts.where(favorite: true)
+  end
+
+  def fav_toggle
+    @contact = Project.find(params[:id])
+    @contact.favorite = true
+    @contact.save
+  end
+
+  helper_method :fav_toggle
+
   private
   def contact_params
-    params.require(:contact).permit(:contact_image, :first_name, :last_name, :birthday, :website, :notes, :address,
-                                    :phone_number1, companies_attributes: [:user_id, :name])
+    params.require(:contact).permit(:contact_image, :first_name, :favorite, :last_name, :birthday, :website,
+                                    :notes, :address, :phone_number1, companies_attributes: [:user_id, :name])
   end
 
 end

@@ -1,6 +1,6 @@
-<nav class="top-navbar">
+<nav class="top-navbar transparant no-border">
 
-  <%= render :partial => '/partials/back_button' %>
+  <%= render '/partials/back_button', {url: contacts_path} %>
 
   <%= link_to edit_contacts_path(@contact) do %>
       <button type="button" class="nav-btn fifth-width nav-right transparant">
@@ -10,15 +10,28 @@
 </nav>
 
 <section class="item_margin">
-  <%= image_tag(@contact.contact_image.url, :class => "contact_image") if @contact.contact_image.exists? %>
-  <h2 class="contact_header"><%= @contact.first_name %></h2>
-  <p  class="contact_detail"><i class="glyphicon glyphicon-user light-gray icon_contact">
+  <% if @contact.contact_image.exists? %>
+      <%= image_tag(@contact.contact_image.url, :class => "contact_image") %>
+  <% else %>
+      <%= image_tag(image_url("placeholder-user.png"), :class => "contact_image") %>
+  <% end %>
+  <section class="contact_name">
+    <h2 class="contact_header"><%= @contact.first_name %></h2>
+    <%= form_for(@contact, :html => {:id => 'fav', idd: @contact.id}, :remote => true, :authenticity_token => true) do |f| %>
+        <div class="check">
+          <%= f.check_box :favorite, :html => {:id => 'checkb'} %>
+        </div>
+    <% end %>
+  </section>
+
+
+  <p class="contact_detail"><i class="glyphicon glyphicon-user light-gray icon_contact">
   </i> <%= @contact.first_name %> <%= @contact.last_name %></p>
 
   <% if @contact.companies.any? %>
       <%= link_to @company_id do %>
           <% @contact.companies.each do |c| %>
-              <p  class="contact_detail"><i class="glyphicon glyphicon-briefcase light-gray icon_contact">
+              <p class="contact_detail"><i class="glyphicon glyphicon-briefcase light-gray icon_contact">
               </i> <%= c.name %></p>
           <% end %>
       <% end %>
@@ -48,4 +61,18 @@
   <p class="contact_detail"><i class="glyphicon glyphicon-trash light-gray icon_contact">
   </i> <%= link_to "Delete", delete_contacts_path(@contact), :confirm => "Are you sure?", :method => :delete %>
   </p>
+
 </section>
+
+<script>
+    $("#fav").click(function () {
+        var idd = $(this).attr("idd");
+
+        $.ajax({
+            type: "PATCH",
+            url: "/contacts/" + idd,
+            data: $("#fav").serialize(),
+            dataType: "script",
+        });
+    });
+</script>
